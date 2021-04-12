@@ -1,0 +1,6 @@
+# /etc/systemd/system/uwsgi.service
+
+[Service]
+ExecStart=/home/ubuntu/virtualenv/bin/gunicorn -b localhost:8001 -w 8 --env DJANGO_SETTINGS_MODULE=stockin.settings stockin.wsgi:application
+WorkingDirectory=/home/ubuntu/swpp2020-team15/stockin/backend
+Restart=on-failure
